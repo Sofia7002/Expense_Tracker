@@ -1,0 +1,238 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    background: linear-gradient(135deg, #424769, #f9b17a);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #2d3250;
+    
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: hsla(26, 95%, 78%, 0.579);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2d3250;
+
+}
+
+#balance{
+    overflow:hidden;
+    text-overflow: ellipsis;
+   
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2d3250;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.balance-container {
+    background: linear-gradient(135deg, #f9b17a80, #474c7186);
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+    
+    
+    
+}
+
+.balance-container h1 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin: 0.5rem 0 1rem;
+}
+
+
+.summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    overflow-x: hidden;
+}
+
+.income,
+.expenses {
+    background:#f4dfd0eb;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    
+}
+
+.income h3 { color: #059669; }
+.expenses h3 { color: #dc2626; }
+
+.income p  { color: #059669; font-size: 1.4rem; font-weight: 700; }
+.expenses p { color: #dc2626; font-size: 1.4rem; font-weight: 700; }
+
+── */
+.transaction-container {
+    flex: 1;
+}
+
+#transaction-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+#transaction-list::-webkit-scrollbar { width: 6px; }
+#transaction-list::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+#transaction-list::-webkit-scrollbar-thumb { background: #cbd5e0; border-radius: 10px; }
+#transaction-list::-webkit-scrollbar-thumb:hover { background: #a0aec0; }
+
+#transaction-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    background: #f4dfd0eb;
+    border: 1px solid #e2e8f0;
+    font-size: 0.95rem;
+    animation: slideIn 0.25s ease;
+    
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+#transaction-list li button {
+    width: auto;
+    padding: 2px 8px;
+    margin: 0;
+    background: none;
+    color: #dc2626;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+#transaction-list li:hover button { opacity: 1; }
+#transaction-list li button:hover { background: #fee2e2; }
+
+.add-transaction-container {
+    background: #f4dfd0eb;
+    border-radius: 14px;
+    padding: 1.25rem;
+}
+
+#form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: "Roboto Condensed", sans-serif;
+    background: #f4dfd0eb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+small {
+    display: block;
+    color: #a0aec0;
+    font-size: 0.78rem;
+    margin-top: 4px;
+}
+
+button#addBtn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #555f96, #667eea);
+    color: #f4dfd0eb;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: "Roboto Condensed", sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button#addBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.5);
+}
+
+button#addBtn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .container { padding: 1.25rem; }
+    .balance-container h1 { font-size: 2rem; }
+    .income p, .expenses p { font-size: 1.1rem; }
+}
+
+.amt,
+.desc{
+    width:50%
+    
+}
+.amt{
+    text-align: right;
+}
+
